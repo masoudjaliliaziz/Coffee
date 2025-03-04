@@ -1,7 +1,13 @@
-import React from "react";
+import SearchInput from "../_component/mobile/SearchInput";
+import Slider from "../_component/Slider";
 
 function page() {
-  return <div className="text-4xl">dashboard</div>;
+  return (
+    <div className="flex flex-col justify-center items-center gap-3 px-6">
+      <SearchInput />
+      <Slider />
+    </div>
+  );
 }
 
 export default page;

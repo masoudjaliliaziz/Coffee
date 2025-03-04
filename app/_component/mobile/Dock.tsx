@@ -17,7 +17,7 @@ function Dock() {
         className={pathName === "dashboard" ? "dock-active" : ""}
       >
         <HomeIcon width={20} />
-        <span className="dock-label">Home</span>
+        <span className="dock-label">خانه</span>
       </Link>
 
       <Link
@@ -26,7 +26,7 @@ function Dock() {
       >
         <ShoppingBagIcon width={20} />
 
-        <span className="dock-label">Shop</span>
+        <span className="dock-label">فروشگاه</span>
       </Link>
 
       <Link
@@ -34,7 +34,7 @@ function Dock() {
         className={pathName === "blog" ? "dock-active" : ""}
       >
         <BookOpenIcon width={20} />
-        <span className="dock-label">Blog</span>
+        <span className="dock-label">ولاگ</span>
       </Link>
     </div>
   );
