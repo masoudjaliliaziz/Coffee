@@ -9,7 +9,7 @@ type props = {
 function ProductCard({ product }: props) {
   return (
     <Link
-      href={`dashboard/${product.id}`}
+      href={`dashboard/${product?.id}`}
       className=" card  h-[250] w-[45%] sm:w-1/4 "
     >
       <figure className="w-full h-1/2 relative rounded-lg overflow-hidden ">

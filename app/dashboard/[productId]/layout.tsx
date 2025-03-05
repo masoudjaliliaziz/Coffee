@@ -5,7 +5,7 @@ function layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div>{children}</div>;
+  return <div className="w-full h-dvh ">{children}</div>;
 }
 
 export default layout;
