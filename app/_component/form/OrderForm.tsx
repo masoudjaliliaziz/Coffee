@@ -61,7 +61,7 @@ function OrderForm({ product }: Props) {
           ))}
         </div>
       </div>{" "}
-      <div className="flex   w-full py-2 justify-start gap-6 bg-base-200 rounded-md">
+      <div className="flex   w-full py-2 justify-start gap-6 bg-base-200 rounded-md   ">
         <h1 className="text-xs font-bold rounded-md  p-1 badge badge-neutral w-1/6 ">
           {" "}
           نوع دم
@@ -77,8 +77,9 @@ function OrderForm({ product }: Props) {
           ))}
         </div>
       </div>
-      <div className="w-full min-h-1/3  flex my-5">
-        <div className="w-2/3 h-full  flex gap-3 items-center">
+      <div className="divider"></div>
+      <div className="w-full min-h-1/3  flex items-center justify-between ">
+        <div className="w-1/3 h-full  flex gap-3 items-center">
           <h1 className="font-bold text-xs">تعداد</h1>
           <div className="flex justify-center items-center gap-1 bg-base-300 px-3 py-1 rounded-lg">
             <div
@@ -105,6 +106,9 @@ function OrderForm({ product }: Props) {
           </div>
         </div>
       </div>
+      <button className="w-3/4 bg-neutral px-3 py-2 flex justify-center items-center h-full text-base-100 rounded-lg text-sm mx-auto mb-6 mt-3">
+        افزودن به سبد خرید
+      </button>
     </form>
   );
 }

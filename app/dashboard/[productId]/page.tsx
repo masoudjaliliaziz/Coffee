@@ -13,12 +13,12 @@ async function page({ params }) {
   const product: Product = curProduct?.[0];
   return (
     <div className="flex flex-col w-full h-full">
-      <div className="productImage h-[45%] w-full bg-base-300 relative">
+      <div className="productImage h-[45%] w-full bg-base-300 relative rounded-md overflow-hidden">
         <Image
           src={"/slide1.jpeg"}
           alt="productImage"
           fill
-          className="object-cover"
+          className="object-cover rounded-md"
         />
       </div>
       <div className="productTitle h-[65%] w-full ">

@@ -11,7 +11,7 @@ function Dock() {
   const pathName = usePathname().split("/").at(-1);
 
   return (
-    <div className="dock dock-sm sm:hidden">
+    <div className="dock  dock-sm sm:hidden  static">
       <Link
         href={"/dashboard"}
         className={pathName === "dashboard" ? "dock-active" : ""}
