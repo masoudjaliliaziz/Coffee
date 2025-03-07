@@ -2,9 +2,9 @@
 
 import { Product } from "@/app/_lib/serviceTypes";
 import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "@/global_state/hook";
+import { useAppDispatch } from "@/global_state/hook";
 import { addToCart } from "@/global_state/cardSlice";
-import { RootState } from "@/global_state/store";
+
 import toast from "react-hot-toast";
 
 type Props = {
@@ -17,8 +17,7 @@ function OrderForm({ product }: Props) {
   const [machine, setMachine] = useState("");
   const [counter, setCounter] = useState(1);
   const dispatch = useAppDispatch();
-  const store = useAppSelector((state: RootState) => state.card);
-  console.log(store);
+
   const roastData = [
     { title: "لایت", value: "light" },
     { title: "مدیوم", value: "medium" },
@@ -80,7 +79,7 @@ function OrderForm({ product }: Props) {
           {roastData.map((data) => (
             <div
               className={`border-2 border-neutral-content text-xs font-semibold p-1 rounded-md cursor-pointer ${
-                roast === data.value ? "bg-primary " : ""
+                roast === data.value ? "bg-primary text-white " : ""
               } `}
               key={data.value}
               onClick={() => setRoast(data.value)}
@@ -100,7 +99,7 @@ function OrderForm({ product }: Props) {
           {weightData.map((data) => (
             <div
               className={`border-2 border-neutral-content text-xs font-semibold p-1 rounded-md cursor-pointer ${
-                weight === data.value ? "bg-primary " : ""
+                weight === data.value ? "bg-primary text-white " : ""
               }`}
               key={data.value}
               onClick={() => setWeight(data.value)}
@@ -120,7 +119,7 @@ function OrderForm({ product }: Props) {
           {machineData.map((data) => (
             <div
               className={`border-2 border-neutral-content text-xs font-semibold p-1 rounded-md cursor-pointer ${
-                machine === data.value ? "bg-primary " : ""
+                machine === data.value ? "bg-primary text-white " : ""
               }`}
               key={data.value}
               onClick={() => setMachine(data.value)}
@@ -166,7 +165,7 @@ function OrderForm({ product }: Props) {
       <button
         type="button"
         onClick={handleAddToCart}
-        className="w-3/4 bg-neutral px-3 py-2 flex justify-center items-center h-full cursor-pointer rounded-lg text-sm mx-auto mb-6 mt-3 hover:bg-primary"
+        className="w-3/4 text-white bg-neutral px-3 py-2 flex justify-center items-center h-full cursor-pointer rounded-lg text-sm mx-auto mb-6 mt-3 hover:bg-primary"
       >
         افزودن به سبد خرید
       </button>

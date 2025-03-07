@@ -3,6 +3,10 @@
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
 }
+.main {
+  padding-bottom: 60px; /* به اندازه ارتفاع dock */
+}
+
 body {
   font-family: "Vazirmatn", sans-serif;
   direction: rtl;

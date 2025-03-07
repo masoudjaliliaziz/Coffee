@@ -12,7 +12,7 @@ async function page({ params }) {
   const curProduct = await getProductById(productId);
   const product: Product = curProduct?.[0];
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="pb-[80px] flex flex-col w-full h-full">
       <div className="productImage h-[45%] w-full bg-base-300 relative rounded-md overflow-hidden">
         <Image
           src={"/slide1.jpeg"}
