@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/global_state/provider";
+import { Toaster } from "react-hot-toast";
 
 const vazir = Vazirmatn({
   variable: "--font-vazir-sans",
@@ -19,7 +21,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazir.variable} `}>{children}</body>
+      <body className={`${vazir.variable} `}>
+        <Providers>
+          <Toaster
+            toastOptions={{
+              className: "",
+              style: {
+                padding: "16px",
+                fontSize: "16px",
+              },
+            }}
+          />
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
