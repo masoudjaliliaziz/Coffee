@@ -1,6 +1,7 @@
 "use client";
 import { useAppSelector } from "@/global_state/hook";
 import { RootState } from "@/global_state/store";
+import Link from "next/link";
 import React from "react";
 
 type Props = {};
@@ -13,9 +14,12 @@ function CartComplete({}: Props) {
   return (
     <div className="fixed bottom-[55px]  w-full h-1/6 rounded-t-xl flex gap-2 shadow-md bg-base-100">
       <div className=" w-2/3 h-full flex justify-center items-center">
-        <button className="btn btn-neutral w-3/4 h-1/3 flex justify-center items-center hover:bg-primary">
+        <Link
+          href={"/checkout"}
+          className="btn btn-neutral w-3/4 h-1/3 flex justify-center items-center hover:bg-primary"
+        >
           خریدتو نهایی کن
-        </button>
+        </Link>
       </div>
       <div className=" w-1/3 h-full flex flex-col justify-center items-center gap-6">
         <h1 className="text-lg font-bold text-base-300">قیمت نهایی</h1>

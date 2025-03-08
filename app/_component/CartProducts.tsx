@@ -6,7 +6,7 @@ import Link from "next/link";
 
 function CartProducts() {
   const store = useAppSelector((state: RootState) => state.card);
-
+  console.log(store);
   return (
     <div className="w-full flex flex-col gap-3 h-5/6 overflow-scroll">
       {store.map((product) => (
