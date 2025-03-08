@@ -8,12 +8,12 @@ function CartProducts() {
   const store = useAppSelector((state: RootState) => state.card);
   console.log(store);
   return (
-    <div className="w-full flex flex-col gap-3 h-5/6 overflow-scroll">
+    <div className="w-full flex flex-col gap-3 h-5/6  overflow-y-scroll no-scrollbar">
       {store.map((product) => (
         <Link
           href={`/dashboard/${product.product.id}`}
           key={product.product.id}
-          className="w-full min-h-28 rounded-md  flex flex-row  items-center gap-2 cursor-pointer bg-base-200 p-3 overflow-hidden"
+          className="w-full min-h-28 rounded-md  flex flex-row  items-center gap-2 cursor-pointer bg-white p-3 overflow-hidden"
         >
           <div className="w-1/3 h-full  rounded-md relative">
             <Image
