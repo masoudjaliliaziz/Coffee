@@ -5,7 +5,11 @@ import Products from "../_component/Products";
 import Slider from "../_component/Slider";
 import Spinner from "../_component/Spinner";
 
-function page({ searchParams }: { searchParams: { type?: string } }) {
+function page({
+  searchParams,
+}: {
+  searchParams: Record<string, string | undefined>;
+}) {
   const type = searchParams.type ?? "all";
 
   return (
