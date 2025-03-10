@@ -2,12 +2,13 @@ import { getProducts } from "@/app/_lib/data-service";
 import { Product } from "@/app/_lib/serviceTypes";
 
 import ProductCard from "./ProductCard";
-import { Suspense } from "react";
 
 async function Products({ type }) {
   const products: Product[] = await getProducts();
   if (!products.length) return null;
-  let displayProduct: Product[] = products;
+  let displayProduct;
+
+  if (type === "all") displayProduct = products;
 
   if (type === "arabica") {
     displayProduct = products.filter(
@@ -26,20 +27,11 @@ async function Products({ type }) {
   }
 
   return (
-    <Suspense
-      fallback={
-        <div className="w-full flex justify-center items-center">
-          {" "}
-          <span className="loading loading-lg loading-spinner text-primary "></span>
-        </div>
-      }
-    >
-      <div key={type} className="flex flex-wrap  gap-0.5 justify-center">
-        {displayProduct.map((Product) => (
-          <ProductCard product={Product} key={Product.id} />
-        ))}
-      </div>
-    </Suspense>
+    <div className="flex flex-wrap  gap-0.5 justify-center">
+      {displayProduct?.map((Product) => (
+        <ProductCard product={Product} key={Product.id} />
+      ))}
+    </div>
   );
 }
 
