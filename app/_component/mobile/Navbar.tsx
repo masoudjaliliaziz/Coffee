@@ -3,7 +3,7 @@
 import Link from "next/link";
 import UserProfile from "./UserProfile";
 
-function Navbar() {
+function Navbar({ children }) {
   return (
     <div className="navbar bg-base-100 shadow-sm flex flex-row-reverse justify-between items-center w-full ">
       <div className="w-3/6">
@@ -18,7 +18,7 @@ function Navbar() {
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
-            <UserProfile userId={"c3b0514f-b555-4fff-85b8-cfc61fcaa55f"} />
+            {children}
           </div>
           <ul
             tabIndex={0}

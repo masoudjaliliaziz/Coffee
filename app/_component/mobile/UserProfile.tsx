@@ -1,29 +1,11 @@
-"use client";
-import { supabase } from "@/app/_lib/supabase";
+import { currentUser } from "@/app/_lib/data-service";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
-export default function UserProfile({ userId }) {
-  const [imageUrl, setImageUrl] = useState(null);
+export default async function UserProfile({ userId }: { userId: string }) {
+  const user = await currentUser(userId);
+  const imageUrl = user?.at(0).image;
 
-  useEffect(() => {
-    const fetchUserImage = async () => {
-      const { data, error } = await supabase
-        .from("users")
-        .select("image")
-        .eq("id", userId)
-        .single();
-
-      if (error) {
-        console.error("Error fetching image:", error.message);
-      } else {
-        console.log(data.image);
-        setImageUrl(data.image);
-      }
-    };
-
-    fetchUserImage();
-  }, [userId]);
+  // افزودن timestamp به URL تصویر برای جلوگیری از کش شدن
 
   return (
     <div>
@@ -32,7 +14,7 @@ export default function UserProfile({ userId }) {
           <Image
             fill
             className="object-cover"
-            alt="Tailwind CSS Navbar component"
+            alt="User Profile Picture"
             src={imageUrl}
           />
         </div>

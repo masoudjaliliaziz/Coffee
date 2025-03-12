@@ -128,43 +128,14 @@ export async function getProducts(): Promise<Product[]> {
 
 // برای Next.js 13 به بالا
 
-export async function fetchUser() {
-  const cookieStore = await cookies(); // گرفتن سشن از next-auth
-  const accessToken = cookieStore.get("accessTocken")?.value; // گرفتن access token
-
-  console.log("Access Token:", accessToken); // برای دیباگ
-
-  if (accessToken) {
-    try {
-      // تنظیم سشن در Supabase با فقط access_token
-      const { error } = await supabase.auth.setSession({
-        access_token: accessToken,
-      });
-
-      if (error) {
-        console.error("Error setting session:", error.message);
-        return null; // اگر خطا بود، مقدار null برمی‌گردونیم
-      }
-    } catch (err) {
-      console.error("Error during session setting:", err.message);
-      return null; // اگر خطای کلی بود
-    }
-  } else {
-    console.log("No access token found.");
-    return null; // اگر توکن نبود، null برمی‌گردونیم
+export async function currentUser(id: string) {
+  const user = await supabase.auth.getUser();
+  if (user) {
+    const { data: users, error } = await supabase
+      .from("users")
+      .select("*")
+      .eq("id", id);
+    if (error) throw new Error(error.message);
+    return users;
   }
-
-  // دریافت کاربر از Supabase
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
-
-  if (error) {
-    console.error("Error fetching user:", error.message);
-    return null; // اگر خطا داشت، null برمی‌گردونیم
-  }
-
-  console.log("User:", user); // برای دیباگ
-  return user;
 }

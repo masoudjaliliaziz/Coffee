@@ -1,16 +1,22 @@
-import { cookies } from "next/headers";
 import UploadImage from "../_component/mobile/profile/UploadImage";
-import { fetchUser } from "../_lib/data-service";
+
+import { cookies } from "next/headers";
+import { currentUser } from "../_lib/data-service";
 
 async function page() {
-  // const cookieStore = await cookies();
-  // console.log(cookieStore.get("accessTocken")?.value);
+  const cookieStore = await cookies();
+  const id = cookieStore.get("userId")?.value;
 
-  fetchUser().then((res) => console.log(res));
+  if (id) {
+    const user = await currentUser(String(id));
+    console.log(id);
+    console.log(user);
+  }
 
   return (
     <div>
-      <UploadImage />
+      <UploadImage id={id} />
+      hi
     </div>
   );
 }

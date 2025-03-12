@@ -20,7 +20,8 @@ export async function Login(state: LoginFormState, formData: FormData) {
   console.log(data);
   if (data.session) {
     await createSession({
-      accessTocken: data.session.access_token,
+      tocken: data.session.access_token,
+      userId: data.user.id,
     });
 
     redirect("/dashboard");
